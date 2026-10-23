@@ -7,8 +7,8 @@
 
 The Personal Expense Tracker is a simple Python program that helps
 users record and manage their daily expenses. Users can add expenses,
-view their records, calculate total spending, and see a summary of
-expenses by category.
+view their records, calculate total spending, delete a record. 
+and see a summary of expenses by category.
 
 The program includes input validation to help prevent invalid expense
 amounts and empty descriptions.
@@ -19,6 +19,7 @@ amounts and empty descriptions.
 - View all recorded expenses.
 - Calculate total expenses in Philippine pesos (PHP).
 - Summarize spending by category.
+- Delete a record in the list.
 - Validate user input.
 
 ## Requirements
@@ -41,4 +42,4 @@ Expenses are stored in memory and are cleared when the program exits.
 
 ## Author
 
-Manuel Ivan D. Gutierrez
+Manuel Ivan D. Gutierrez <333
