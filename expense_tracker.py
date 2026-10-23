@@ -32,7 +32,6 @@ def add_expense():
 
     print("Expense added successfully!")
 
-
 def view_expenses():
     print("\n--- Expense Records ---")
 
@@ -47,11 +46,26 @@ def view_expenses():
             f"PHP {expense['amount']:.2f}"
         )
 
+def delete_expense():
+    view_expenses()
+
+    if not expenses:
+        return
+
+    try:
+        number = int(input("Enter the expense number to delete: "))
+
+        if 1 <= number <= len(expenses):
+            removed = expenses.pop(number - 1)
+            print(f"Deleted expense: {removed['description']}")
+        else:
+            print("Invalid expense number.")
+    except ValueError:
+        print("Please enter a valid whole number.")
 
 def show_total():
     total = sum(expense["amount"] for expense in expenses)
     print(f"\nTotal expenses: PHP {total:.2f}")
-
 
 def show_category_summary():
     print("\n--- Spending by Category ---")
@@ -68,7 +82,6 @@ def show_category_summary():
     for category, amount in sorted(totals.items()):
         print(f"{category}: PHP {amount:.2f}")
 
-
 def main():
     while True:
         print("\n=== Personal Expense Tracker ===")
@@ -76,9 +89,10 @@ def main():
         print("2. View Expenses")
         print("3. Show Total Expenses")
         print("4. Show Category Summary")
-        print("5. Exit")
+        print("5. Delete Expense")
+        print("6. Exit")
 
-        choice = input("Choose an option (1-5): ").strip()
+        choice = input("Choose an option (1-6): ").strip()
 
         if choice == "1":
             add_expense()
@@ -89,11 +103,12 @@ def main():
         elif choice == "4":
             show_category_summary()
         elif choice == "5":
+            delete_expense()
+        elif choice == "6":
             print("Thank you for using the Expense Tracker!")
             break
         else:
-            print("Invalid choice. Please select 1-5.")
-
+            print("Invalid choice. Please select 1-6.")
 
 if __name__ == "__main__":
     main()
